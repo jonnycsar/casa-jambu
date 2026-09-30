@@ -112,11 +112,11 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:13px}
     btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set')===l?'true':'false');});
     document.documentElement.lang=l==='de'?'de':'pt-BR';
     document.title=l==='de'?'Casa Jambú – Zusammenfassung':'Casa Jambú – Resumo';
-    try{localStorage.setItem('casajambo-lang',l);}catch(e){}
+    
   }
   btns.forEach(function(b){b.addEventListener('click',function(){set(b.getAttribute('data-set'));window.scrollTo(0,0);});});
-  var saved=null;try{saved=localStorage.getItem('casajambo-lang');}catch(e){}
-  set(saved==='pt'?'pt':'de');
+  
+  set('de');
 })();
 }
   var form=document.getElementById('unlock'),pw=document.getElementById('pw'),err=document.getElementById('err'),go=document.getElementById('go');
