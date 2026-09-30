@@ -133,9 +133,12 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:13px}
       var f=F[+btn.getAttribute('data-att')];btn.disabled=true;
       try{
         var buf=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(f.iv)},K,b64(f.ct));
-        var url=URL.createObjectURL(new Blob([buf],{type:f.t}));
+        var blob=new Blob([buf],{type:f.t});
+        var dl=(window.claude&&window.claude.use)?await window.claude.use('downloads'):null;
+        if(dl){try{await dl.save({filename:f.n,data:blob});}catch(x){}}
+        else{var url=URL.createObjectURL(blob);
         var a=document.createElement('a');a.href=url;a.download=f.n;document.body.appendChild(a);a.click();a.remove();
-        setTimeout(function(){URL.revokeObjectURL(url);},60000);
+        setTimeout(function(){URL.revokeObjectURL(url);},60000);}
       }catch(x){}
       btn.disabled=false;
     });
