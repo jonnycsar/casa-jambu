@@ -155,7 +155,7 @@ body.p3d-lock{overflow:hidden}
 
 /* landing hero */
 .hero{position:relative;height:min(calc(100vh - var(--barh,66px)),900px);height:min(calc(100svh - var(--barh,66px)),900px);min-height:500px;overflow:hidden;background:#20301f;color:#fff;isolation:isolate}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2;transform:scale(1.02)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 100%;z-index:-2;transform:scale(1.22);transform-origin:50% 100%}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,16,12,.28) 0%,rgba(10,16,12,0) 22%,rgba(10,16,12,0) 42%,rgba(10,16,12,.55) 70%,rgba(10,16,12,.86) 100%)}
 .hero-in{position:absolute;left:0;right:0;bottom:44px;max-width:920px;margin:0 auto;padding-inline:16px}
 .hero-eye{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;font:600 12px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88)}
@@ -166,7 +166,7 @@ body.p3d-lock{overflow:hidden}
 .hero-meta{margin:16px 0 0;max-width:640px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.82)}
 .wrap>header{display:none}
 .langbar.stuck{box-shadow:0 6px 20px rgba(0,0,0,.08)}
-@media (max-width:600px){.hero{height:calc(100svh - var(--barh,110px));min-height:460px}.hero-in{bottom:28px}.hero-meta{font-size:13px}}
+@media (max-width:600px){.hero-img{transform:scale(1.06)}.hero{height:calc(100svh - var(--barh,110px));min-height:460px}.hero-in{bottom:28px}.hero-meta{font-size:13px}}
 @media (prefers-reduced-motion:reduce){.langbar{transition:none}}
 </style>
 </head>
