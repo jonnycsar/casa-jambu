@@ -19,3 +19,7 @@ Sempre que o modelo 3D mudar:
 
 Se as medidas mudarem, atualize também os números da seção (áreas, tabela) nos três idiomas.
 A tarefa diária também roda o passo 2–4, então a página nunca fica mais de um dia desatualizada.
+
+## Vídeo da galeria
+
+O vídeo da visita fica fora do HTML, em `casa-jambo-video.enc.mp4`: são 12 bytes de IV + o MP4 criptografado com a mesma chave da página (o nome termina em .mp4 só porque o artefato não serve outros tipos binários). A galeria baixa e decifra o arquivo ao abrir o vídeo. Ao republicar o artefato "Casa Jambú", ele precisa continuar como arquivo de apoio (`files: {"casa-jambo-video.enc.mp4": ...}`); se for omitido num republish, o arquivo já publicado é mantido.
