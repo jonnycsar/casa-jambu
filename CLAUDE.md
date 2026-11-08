@@ -31,3 +31,7 @@ Os números aparecem via CSS no `<style>` logo antes de `<div class="hero">` (de
 ## Abas dos lotes vizinhos
 
 Na seção Área do terreno, os lotes do mapa (`a.lotlink[data-lot]`) abrem as abas `.lotbox` logo abaixo. O clique é tratado pelo `<script>` com `function sel(box,n)` que fica fora do conteúdo criptografado, logo após `<div id="app" hidden></div>` (nos dois arquivos: repositório e artefato).
+
+## Fotos da galeria (visitas de 30/08 e 03/10)
+
+As 111 fotos novas ficam fora do HTML, criptografadas com a mesma chave da página (12 bytes de IV + AES-GCM, como o vídeo): `casa-jambo-miniaturas.enc.jpg` (pacote com as miniaturas: uint32 N, N tamanhos uint32, depois os JPEGs) e `casa-jambo-foto-000.enc.jpg` … `110` (versão grande, aberta no visualizador). Os botões ficam dentro do conteúdo criptografado, depois de `<!--poco-fotos-->`, nos três idiomas, e o `<script>` de `wireGallery` (fora do conteúdo criptografado) baixa e decifra os arquivos sob demanda. Ao republicar o artefato "Casa Jambú", todos esses arquivos precisam continuar publicados (se omitidos num republish, os já publicados são mantidos).
