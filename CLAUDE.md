@@ -23,3 +23,11 @@ A tarefa diária também roda o passo 2–4, então a página nunca fica mais de
 ## Vídeo da galeria
 
 O vídeo da visita fica fora do HTML, em `casa-jambo-video.enc.mp4`: são 12 bytes de IV + o MP4 criptografado com a mesma chave da página (o nome termina em .mp4 só porque o artefato não serve outros tipos binários). A galeria baixa e decifra o arquivo ao abrir o vídeo. Ao republicar o artefato "Casa Jambú", ele precisa continuar como arquivo de apoio (`files: {"casa-jambo-video.enc.mp4": ...}`); se for omitido num republish, o arquivo já publicado é mantido.
+
+## Numeração das seções (Hero, S1, S2…)
+
+Os números aparecem via CSS no `<style>` logo antes de `<div class="hero">` (dentro do conteúdo criptografado): uma regra `#pt-x>h2::before,#de-x>h2::before,#en-x>h2::before{content:"Sn"}` por seção, na ordem da página. Ao criar, remover ou mover uma seção, atualize essas regras para a numeração continuar sequencial.
+
+## Abas dos lotes vizinhos
+
+Na seção Área do terreno, os lotes do mapa (`a.lotlink[data-lot]`) abrem as abas `.lotbox` logo abaixo. O clique é tratado pelo `<script>` com `function sel(box,n)` que fica fora do conteúdo criptografado, logo após `<div id="app" hidden></div>` (nos dois arquivos: repositório e artefato).
